@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<!-- saved from url=(0047)http://www.haloxin.me/one/index.php?c=footprint -->
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>中川沐矢 - 我的足迹</title>
+		<link rel="stylesheet" media="all" href="./src/jquery-jvectormap.css">
+		<script src="./src/jquery-1.8.2.js"></script>
+		<style type="text/css" adt="123"></style>
+		<script src="./src/jquery-jvectormap.js"></script>
+		<script src="./src/jquery-mousewheel.js"></script>
+
+		<script src="./src/jvectormap.js"></script>
+
+		<script src="./src/abstract-element.js"></script>
+		<script src="./src/abstract-canvas-element.js"></script>
+		<script src="./src/abstract-shape-element.js"></script>
+
+		<script src="./src/svg-element.js"></script>
+		<script src="./src/svg-group-element.js"></script>
+		<script src="./src/svg-canvas-element.js"></script>
+		<script src="./src/svg-shape-element.js"></script>
+		<script src="./src/svg-path-element.js"></script>
+		<script src="./src/svg-circle-element.js"></script>
+		<script src="./src/svg-image-element.js"></script>
+		<script src="./src/svg-text-element.js"></script>
+
+		<script src="./src/vml-element.js"></script>
+		<script src="./src/vml-group-element.js"></script>
+		<script src="./src/vml-canvas-element.js"></script>
+		<script src="./src/vml-shape-element.js"></script>
+		<script src="./src/vml-path-element.js"></script>
+		<script src="./src/vml-circle-element.js"></script>
+		<script src="./src/vml-image-element.js"></script>
+
+		<script src="./src/map-object.js"></script>
+		<script src="./src/region.js"></script>
+		<script src="./src/marker.js"></script>
+
+		<script src="./src/vector-canvas.js"></script>
+		<script src="./src/simple-scale.js"></script>
+		<script src="./src/ordinal-scale.js"></script>
+		<script src="./src/numeric-scale.js"></script>
+		<script src="./src/color-scale.js"></script>
+		<script src="./src/legend.js"></script>
+		<script src="./src/data-series.js"></script>
+		<script src="./src/proj.js"></script>
+		<script src="./src/map.js"></script>
+
+		<script src="./src/jquery-jvectormap-cn-mill-en.js"></script>
+		<script>
+			$(function() {
+				var markers = [{
+						latLng: [34.495876,115.643022],
+						name: '河南 · 商丘 - 人生的起点 - 1/1995'
+					}, {
+						latLng: [34.394514,115.838803],
+						name: '商丘 · 虞城 - 初中所在的地方 - 12/2005'
+					}, {
+						latLng: [43.765391,87.620378],
+						name: '新疆 · 乌鲁木齐 - 大学母校的所在地 - 7/2013'
+					}, {
+						latLng: [47.83653,86.682408],
+						name: '新疆 · 阿勒泰 - 第一步旅行 - 10/2014'
+					}, {
+						latLng: [24.870901,102.857946],
+						name: '云南 · 昆明 - 很熟悉的一个陌生的地方 - 12/2015'
+					}, {
+						latLng: [21.995045,100.776432],
+						name: '云南 · 西双版纳 - 感触比较深的地方 - 12/2015'
+					}, {
+						latLng: [26.877277,100.136439],
+						name: '云南 · 丽江 - 去过最浪漫的地方 - 1/2016'
+					}, {
+						latLng: [23.147919,113.258002],
+						name: '广东 · 广州 - 第一次去南方 - 1/2016'
+					}, {
+						latLng: [22.529592,114.116312],
+						name: '广东 · 深圳 - 离香港最近的地方 - 1/2016'
+					}, {
+						latLng: [32.08492,118.797647],
+						name: '江苏 · 南京 - 第二个家 - 2/2017'
+					}, {
+						latLng: [36.062613,120.314935],
+						name: '山东 · 青岛 - 第一次见到大海 - 5/2019'
+					}, {
+						latLng: [38.039978,114.548916],
+						name: '河北 · 石家庄 - 毕业后来到的第一个城市？ - 6/2017'
+					}, {
+						latLng: [39.954045,119.594224],
+						name: '河北 · 北戴河 - 第二次到海边 - 10/2020'
+					}, {
+						latLng: [31.324293,120.628167],
+						name: '江苏 · 苏州 - 拙政园好风光 - 10/2020'
+					}, {
+						latLng: [31.245471,121.455097],
+						name: '上海市 - 东方明珠 - 10/2020'
+					}, {
+						latLng: [39.98539,116.405993],
+						name: '北京 - 我奋斗的地方 - 10/2018'
+					}, ],
+					values1 = [408, 512, 550, 781],
+					values2 = [1, 2, 3, 4],
+					values3 = {
+						'4': 'bank',
+					};
+				$('#map1').vectorMap({
+					map: 'cn_mill_en',
+					panOnDrag: false,
+					backgroundColor: '#A8B2CB',
+					markers: markers,
+					markerStyle: {
+						initial: {
+							fill: '#FF444E',
+							stroke: '#FF444E',
+							"fill-opacity": 1,
+							"stroke-width": 1,
+							"stroke-opacity": 1,
+							r: 4
+						},
+						hover: {
+							stroke: 'black',
+							"stroke-width": 2,
+							cursor: 'pointer'
+						},
+						selected: {
+							fill: 'blue'
+						},
+						selectedHover: {}
+					},
+					labels: {
+						render: function(code) {
+							var doNotShow = ['US-RI', 'US-DC'];
+							if (doNotShow.indexOf(code) === -1) {
+								return code.split('-')[1];
+							}
+						},
+					}
+				});
+			})
+		</script>
+
+		<body style="background-color: #A8B2CB;">
+			<!--<div style="margin-top: 30px;font-style:bold;margin-bottom:30px;width: 100%;text-align: center;font-size: 28px;color: #FFFFFF;">我的足迹 - MyFootPrint | Resmic</div>-->
+			<div id="map1" style="margin: auto; height: 500px;">
+			</div>
+		</body>
+
+</html>
